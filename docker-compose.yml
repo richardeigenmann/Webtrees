@@ -1,0 +1,31 @@
+# docker-compose up -d --build
+# based on https://medium.com/@lojorider/docker-with-cgi-perl-a4558ab6a329
+# docker exec -it webtrees_nginx bash
+# docker exec -it webtrees_php bash
+
+version: '3'
+services:
+    web:
+        container_name: webtrees_web
+        restart: always
+        build:
+            context: .
+        volumes:
+            - ./weblog:/var/log/nginx/web
+            - /richi/Privat/Data/Webtrees-Data:/var/www/data
+        ports:
+            - "8088:80"
+
+    php:
+        container_name: webtrees_php
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile-php
+        volumes:
+            - /richi/Privat/Data/Webtrees-Data:/var/www/data
+
+networks:
+   default:
+       external:
+          name: RichiNet
