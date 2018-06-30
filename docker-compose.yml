@@ -1,6 +1,6 @@
 # docker-compose up -d --build
 # based on https://medium.com/@lojorider/docker-with-cgi-perl-a4558ab6a329
-# docker exec -it webtrees_nginx bash
+# docker exec -it webtrees_web bash
 # docker exec -it webtrees_php bash
 
 version: '3'
