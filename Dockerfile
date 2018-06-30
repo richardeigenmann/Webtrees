@@ -8,7 +8,6 @@ RUN apt-get clean && apt-get update && apt-get install -y \
   && chown nginx:nginx /etc/init.d/fcgiwrap
 
 COPY vhost.conf /etc/nginx/conf.d/default.conf
-#COPY www/ /var/www/
 ADD https://launchpad.net/webtrees/1.7/1.7.9/+download/webtrees-1.7.9.zip /var/www/
 RUN cd /var/www \
   && unzip /var/www/webtrees-1.7.9.zip \
